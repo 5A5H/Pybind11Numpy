@@ -37,7 +37,7 @@ void init_MatrixA(py::module &m)
             auto MatrixBuffer = 
             py::buffer_info
             (
-                // 1. a pointer to the buffer (buffer = array of pointer to data)
+                // 1. a pointer to the buffer (start of the memoryblock with contiguous data)
                 mat.data(),
                 // 2. the size of each individual type (homogenous data -> all types are equal)
                 sizeof(double),

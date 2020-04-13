@@ -68,7 +68,7 @@ The binding code is:
             auto MatrixBuffer = 
             py::buffer_info
             (
-                // 1. a pointer to the buffer (buffer = array of pointer to data)
+                // 1. a pointer to the buffer (start of the memoryblock with contiguous data)
                 mat.data(),
                 // 2. the size of each individual type (homogenous data -> all types are equal)
                 sizeof(double),
@@ -86,7 +86,7 @@ The binding code is:
 ```
 
 ## Ressources:
-[Pythons C-API Docu on Buffer Protocol](https://docs.python.org/3/c-api/buffer.html)
+[Pythons C-API Docu on Buffer Protocol](https://docs.python.org/3/c-api/b≤uffer.html)
 
 >A pointer to the start of the logical structure described by the buffer fields. This can be any location within the underlying physical memory block of the exporter. For example, with negative strides the value may point to the end of the memory block.
 
