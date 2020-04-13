@@ -28,5 +28,9 @@ Preliminary:
 To be represented as a numpy array, the data must lie in continuous memory, i.e. a buffer.
 Lets suppose the target is to expose the data of matrix A:
 ```math
-A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{\bmatrix}
+A = 
+\begin{array}[ccc] 
+1 & 2 & 3 \\ 
+4 & 5 & 6 
+\end{\array}
 ```
