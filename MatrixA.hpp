@@ -16,24 +16,15 @@ class MatrixA
     public:
     MatrixA()
     {
-       DataStorage = {6.0 ,5.0 ,4.0 ,2.0, 1.0, 3.0};
+       DataStorage = {1.0 ,2.0 ,3.0 ,4.0, 5.0, 6.0};
     }
     double* data()
     {
-        ptr[0] = &(DataStorage[4]);
-        ptr[1] = &(DataStorage[3]);
-        ptr[2] = &(DataStorage[5]);
-        ptr[3] = &(DataStorage[2]);
-        ptr[4] = &(DataStorage[1]);
-        ptr[4] = &(DataStorage[1]);
-        ptr[5] = &(DataStorage[0]);
-        //return ptr[0];
-        return DataStorage.data();
+        return &(DataStorage[0]);
     }
     
     private:
     std::vector<double> DataStorage;
-    double* ptr[6];
 };
 
 void init_MatrixA(py::module &m)

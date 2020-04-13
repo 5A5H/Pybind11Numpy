@@ -48,7 +48,7 @@ struct buffer_info {
 };
 ```
 **Example :**
-
+Say we have the matrix **A**
 ```math
 \left(
 \begin{array}{ccc} 
@@ -56,6 +56,33 @@ struct buffer_info {
 4 & 5 & 6 
 \end{array}
 \right)
+```
+
+saved in c within a class as a `std::vector<double>`. The `std::vector` represents a contiguous data array in memory.
+
+The binding code is:
+```c++
+    .def_buffer(
+        [](MatrixA &mat) -> py::buffer_info
+        {
+            auto MatrixBuffer = 
+            py::buffer_info
+            (
+                // 1. a pointer to the buffer (buffer = array of pointer to data)
+                mat.data(),
+                // 2. the size of each individual type (homogenous data -> all types are equal)
+                sizeof(double),
+                // 3. python format (python must know the type, while standard types are supported)
+                py::format_descriptor<double>::format(),
+                // 4. dimensions of the resulting numpy array
+                2,
+                // 5. number of entires in each dimension
+                { 2, 3 },
+                // 6. strides (in bytes) for each index (i.e. length of a row, col, etc. : array(0,0) -> internalarray[0*stride_dim1+0*stride_dim2], array(1,0) -> internalarray[1*stride_dim1+0*stride_dim2] )
+                { sizeof(double)*3 ,sizeof(double)}
+            );
+            return MatrixBuffer;
+        }
 ```
 
 ## Ressources:
