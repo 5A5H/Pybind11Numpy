@@ -24,9 +24,9 @@ the first command does create a variable `a` and assignes the value `9` which is
 Althoug this seems to be complicated at the first glance it actually is not so much. Also it reminds me to MPI-message parsing. The python buffer protocol is a way of describing python how to access memory which is not managed by python. That beeing said, it can be used to 'visalize' a numpy array to python, which actually acts on my c-data.
 The implementation is provided in the code, but I like to introduce one thing upfornt to provide a little more explanation.
 
-The python buffer protocol works such that on the c-side a buffer must be provided. This buffer is an array of pointers, pointing to the data in a continuous manner.
+The python buffer protocol works such that on the c-side a buffer must be provided. This buffer is an array of pointers, pointing to the data in a contiguous manner.
 
-> The buffer must provide a continuous representation of the data ,while the data must not be continuous. This way only the complexity of building the buffer (array of pointers to the data) increases if the actual data is not continuous.
+> The buffer must provide a contiguous representation of the data ,while the data must not be contiguous. This way only the complexity of building the buffer (array of pointers to the data) increases if the actual data is not contiguous.
 
 Futhermore the protocoll provides the instructions how to read this buffer as a numpy array. This means how many intries per row etc.
 
@@ -57,5 +57,12 @@ struct buffer_info {
 \end{array}
 \right)
 ```
+
+## Ressources:
+[Pythons C-API Docu on Buffer Protocol](https://docs.python.org/3/c-api/buffer.html)
+
+>A pointer to the start of the logical structure described by the buffer fields. This can be any location within the underlying physical memory block of the exporter. For example, with negative strides the value may point to the end of the memory block.
+
+For contiguous arrays, the value points to the beginning of the memory block.
 
 
