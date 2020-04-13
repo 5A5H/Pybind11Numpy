@@ -29,9 +29,10 @@ To be represented as a numpy array, the data must lie in continuous memory, i.e.
 Lets suppose the target is to expose the data of matrix A:
 ```math
 A = 
-```
-
-\begin{array}[ccc] 
+\begin{array}{ccc} 
 1 & 2 & 3 \\ 
 4 & 5 & 6 
 \end{\array}
+```
+
+
