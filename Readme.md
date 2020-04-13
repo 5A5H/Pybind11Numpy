@@ -27,12 +27,12 @@ The implementation is provided in the code, but I like to introduce one thing up
 Preliminary:
 To be represented as a numpy array, the data must lie in continuous memory, i.e. a buffer.
 Lets suppose the target is to expose the data of matrix A:
-```math
-A = 
+```math 
+A =   
 \begin{array}{ccc} 
 1 & 2 & 3 \\ 
 4 & 5 & 6 
-\end{\array}
+\end{array}
 ```
 
 
