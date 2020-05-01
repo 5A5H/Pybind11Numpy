@@ -15,6 +15,7 @@ namespace py = pybind11;
 
 #include <FunctionA.hpp>
 #include <MatrixA.hpp>
+#include <MatrixB.hpp>
 
 // list of Function Declarations
 void init_Function(py::module &m);
@@ -60,6 +61,7 @@ PYBIND11_MODULE(pymat, m)
     init_Function(m);
     init_ArrayFunction(m);
     init_MatrixA(m);
+    init_MatrixB(m);
     auto p = py::class_<Matrix, std::shared_ptr<Matrix> >(m, "Matrix", py::buffer_protocol());
     p.doc() = "Matrix Class";
     p.def("__repr__",[](const Matrix &a){return "<Matrix>";});
